@@ -1,65 +1,53 @@
-import Image from "next/image";
+import Image from 'next/image'
+import ProjectCard from './components/ProjectCard';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen p-8 max-w-4xl mx-auto">
+      {/* Hero Card */}
+      <section className="hero-card">
+        <div className="relative w-75 h-75 rounded-2xl oveflow-hidden border-2 border-slate-700 shadow-2xl">
+          <Image
+            src="/bosshoss.png"
+            alt="Anthony Lewallen"
+            fill
+            className="object-cover"
+          />
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+        <h2 className="text-blue-600 font-mono tracking-widget uppercase text-xl mt-6">Fullstack Software Systems & AI Architect</h2>
+        <h1 className="text-4xl font-bold mt-2">Anthony Eugene Lewallen</h1>
+        <p className="mt-4 text-slate-600 leading-relaxed">
+          Fullstack developer focused on building responsive, polished interfaces across TypeScript, Node.js, and Python. Currently pursuing dual Master's degree at Penn (MSA-CS Software Systems Concentration and MSE-AI). Former math teacher turned developer.
+        </p>
+      </section>
+
+      {/* The Project Card */}
+      <section className="projects-inner-container mt-6 rounded-xl">
+        
+
+        {/* The "Smaller Box" inner Container (tiles) for project thumbnails */}
+        <div className="bg-white/50 p-6 rounded-xl border border-slate-300 shadow-inner mt-6">
+        <h2 className="text-2xl font-bold text-center"> Projects </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-blue-600">
+            {/* Drop the project tiles here next */}
+            <ProjectCard
+              title="Guess Word Master"
+              description="A high-performance Wordle clone with O(n) logic."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <ProjectCard
+              title="Legacy Portfolio"
+              description="The original vanilla JS prototype."
+            />           
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="youtube-card-container mt-8 rounded-xl">
+        <div className="bg-white/50 p-6 rounded-xl border border-slate-300 shadow-inner mt-6">
+        <h2 className="text-2xl font-bold text-center">YouTube</h2>
+        </div>
+      </section>
+    </main>
   );
 }
