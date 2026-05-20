@@ -10,11 +10,35 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+function fallbackTitle(slug: string) {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function fallbackDescription(content: string) {
+  const excerpt = content
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/[#*_>`|[\]-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return excerpt.slice(0, 160).trim() || 'No description available.';
+}
+
 function getPost(slug: string) {
   const filePath = path.join(process.cwd(), 'content/blog', `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(raw);
-  return { meta: data, content };
+  return {
+    meta: {
+      title: data.title || fallbackTitle(slug),
+      date: data.date || '',
+      description: data.description || fallbackDescription(content),
+    },
+    content,
+  };
 }
 
 export default async function BlogPost({ params }: Props) {

@@ -11,6 +11,23 @@ interface PostMeta {
   description: string;
 }
 
+function fallbackTitle(slug: string) {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function fallbackDescription(content: string) {
+  const excerpt = content
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/[#*_>`|[\]-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return excerpt.slice(0, 160).trim() || 'No description available.';
+}
+
 function getPosts(): PostMeta[] {
   const contentDir = path.join(process.cwd(), 'content/blog');
   if (!fs.existsSync(contentDir)) return [];
@@ -20,12 +37,14 @@ function getPosts(): PostMeta[] {
   return files
     .map(filename => {
       const raw = fs.readFileSync(path.join(contentDir, filename), 'utf-8');
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
+      const slug = filename.replace('.mdx', '');
+
       return {
-        slug: filename.replace('.mdx', ''),
-        title: data.title,
-        date: data.date,
-        description: data.description,
+        slug,
+        title: data.title || fallbackTitle(slug),
+        date: data.date || '',
+        description: data.description || fallbackDescription(content),
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
