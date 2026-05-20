@@ -1,0 +1,53 @@
+**Binary accuracy is the wrong headline metric for reward models.**
+
+Both models hit ~62% test accuracy.
+
+Looked fine on the surface.
+
+But one model learned a much larger reward gap, and that is where the problem showed up.
+
+That’s the finding from `rlhf-eval`, an open-source harness I built for analyzing preference-pair quality in RLHF datasets. For the first experiment, I ran it on the public HH-RLHF corpus: 160,800 preference pairs scored by 7 detectors, then used to train competing reward models on clean vs. unfiltered data.
+
+Result:
+
+7.9% of the dataset, 12,693 pairs, was flagged as potentially pathological.
+
+That left 148,107 clean examples.
+
+Then I trained two DistilBERT reward models with Bradley-Terry pairwise loss:
+
+| Metric            |   Clean | Unfiltered |
+| ----------------- | ------: | ---------: |
+| Training examples | 148,107 |    160,800 |
+| Test accuracy     |  62.18% |     62.33% |
+| Avg reward gap    |  0.2282 |     0.3014 |
+
+Accuracy difference: basically nothing.
+
+Reward gap difference: the unfiltered model produced a ~32% larger chosen-minus-rejected margin.
+
+That larger gap does **not** automatically mean a better reward model.
+
+It can mean the opposite: the model is more confident because it learned from noisy or contradictory preference labels.
+
+Near-duplicate chosen/rejected pairs teach arbitrary preferences. Repetitive or malformed responses distort the loss. Safety/refusal edge cases can teach the model the wrong preference boundary. Length and readability mismatches can make the label look clean while the actual signal is weak.
+
+At that point, the model is not becoming more aligned. It is becoming more confident in the dataset’s noise.
+
+Binary accuracy does not catch that.
+
+A reward model can be “right” 62% of the time while becoming systematically overconfident in the wrong places. That matters because downstream optimization does not just care which answer wins. It cares about the shape and magnitude of the reward signal.
+
+Bad preference data → miscalibrated reward model → policy optimization chases bad signal → downstream model reproduces the data pathology.
+
+The takeaway:
+
+**Reward-model evaluation needs more than binary accuracy.**
+
+You need to inspect reward margins, flagged data slices, confidence behavior, and the failure modes hidden inside the preference dataset.
+
+Filtering 7.9% of pathological examples did not hurt accuracy.
+
+It reduced false confidence.
+
+And false confidence is where reward models become brittle.
