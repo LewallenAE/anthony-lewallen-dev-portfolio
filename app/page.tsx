@@ -1,66 +1,131 @@
-import Image from 'next/image'
-import ProjectCard from './components/ProjectCard';
+import Image from 'next/image';
 import Link from 'next/link';
+import ProjectCard from './components/ProjectCard';
 
 export default function Home() {
   return (
-    <main className="bg-[#331F1B] min-h-screen p-8 max-w-4xl mx-auto">
-      {/* Hero Card */}
-      <section className="hero-card">
-        <div className="relative w-75 h-75 rounded-2xl oveflow-hidden border-2 border-slate-700 shadow-2xl">
-          <Image
-            src="/AL.png"
-            alt="Anthony Lewallen"
-            fill
-            className="object-cover"
-          />
+    <main className="max-w-4xl mx-auto px-6 py-16 space-y-20">
 
+      {/* ── Hero ── */}
+      <section className="flex flex-col sm:flex-row gap-10 items-start">
+        <div className="relative shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-white/10">
+          <Image src="/AL.png" alt="Anthony Lewallen" fill className="object-cover" />
         </div>
-        <h2 className="text-[#706887] font-mono tracking-widget uppercase text-xl mt-6">Applied AI Research Engineer</h2>
-        <h1 className="text-4xl font-bold mt-2">Anthony Eugene Lewallen</h1>
-        <p className="mt-4 text-[#BEB1CC] leading-relaxed">
-          Applied AI research engineer building adversarial benchmarks, RL environments, and RLHF infrastructure for frontier model post-training. Currently pursuing dual master's degrees at Penn MAS-CS AI and MSE-AI
-        </p>
-      </section>
-
-      {/* The Project Card */}
-      <section className="projects-inner-container mt-6 rounded-xl">
-        
-
-        {/* The "Smaller Box" inner Container (tiles) for project thumbnails */}
-        <div className="bg-[#261B33] p-6 rounded-xl border border-slate-300 shadow-inner mt-6">
-        <h2 className="text-2xl font-bold text-center"> Projects </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-blue-600">
-            {/* Drop the project tiles here next */}
-            <ProjectCard
-              title="rlhf-eval"
-              description="Reinforcement Learning with Human Feedback Evaluation Framework for LLMs."
-            />
-            <ProjectCard
-              title="Guess Word Master"
-              description="A high-performance Wordle clone with O(n) logic."
-            />
-            <ProjectCard
-              title="DV-eval-harness"
-              description="A protoptype for a design verification evaluation harness for LLMs."
-            />           
+        <div>
+          <p className="text-white text-lg font-bold mb-1">Full-Stack Software Engineer</p>
+          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">
+            Applied Machine Learning &nbsp;·&nbsp; Security Engineering &nbsp;·&nbsp; Software Systems
+          </p>
+          <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
+            Anthony Lewallen
+          </h1>
+          <p className="text-slate-400 leading-relaxed max-w-xl">
+            Building ML infrastructure, offensive security tooling, and systems that
+            actually ship. Pursuing dual master&apos;s degrees at Penn in AI and MSE-AI.
+          </p>
+          <div className="flex gap-5 mt-5">
+            <a
+              href="https://github.com/LewallenAE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+            >
+              GitHub →
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anthony-lewallen/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+            >
+              LinkedIn →
+            </a>
+            <Link href="/blog" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+              Blog →
+            </Link>
           </div>
         </div>
       </section>
-      <section className="blog-post-card-container mt-8 rounded-xl">
-        <div className="bg-[#261B33] p-6 rounded-xl border border-slate-300 shadow-inner mt-6">
-          <Link href="/blog">
-            <h2 className="text-2xl font-bold text-center">Blog</h2>
-          </Link>
-        </div>
-      </section>
-      <section className="youtube-card-container mt-8 rounded-xl">
-        <div className="bg-[#261B33] p-6 rounded-xl border border-slate-300 shadow-inner mt-6">
-        <h2 className="text-2xl font-bold text-center">YouTube
-          <p>Coming Soon</p>
+
+      {/* ── Projects ── */}
+      <section>
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-6">
+          Projects
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ProjectCard
+            title="Binary Architecture Classifier"
+            description="In-process Go inference engine classifying PE binaries by CPU architecture via hex word n-gram TF-IDF + LinearSVC. Solved the Praetorian ML challenge 11 consecutive times — 500 correct predictions per run, 0 wrong."
+            tech={['Go', 'React', 'TypeScript', 'AWS EC2']}
+            github="https://github.com/LewallenAE/go-binary-classifier"
+            demo="http://18.116.239.117:8080"
+            demoLabel="Live →"
+          />
+          <ProjectCard
+            title="RLHF Eval"
+            description="Data quality pipeline for RLHF training data. Seven detectors flagged 7.9% of 160,800 preference pairs from Anthropic's HH-RLHF dataset. Trained competing reward models on clean vs. unfiltered data to measure impact."
+            tech={['Python', 'PyTorch', 'FastAPI', 'PostgreSQL', 'Docker']}
+            github="https://github.com/LewallenAE/rlhf-eval"
+          />
+          <ProjectCard
+            title="ScratchLM"
+            description="GPT-2 (124M) architecture built from scratch in PyTorch — custom LayerNorm, GELU activation, causal multi-head self-attention, and transformer blocks with pre-norm residual connections. No high-level abstractions."
+            tech={['Python', 'PyTorch']}
+            github="https://github.com/LewallenAE/ScratchLM"
+          />
+          <ProjectCard
+            title="DV Eval Harness"
+            description="LLM evaluation harness for hardware design verification. Drives agents through 5-step debug trajectories against broken RTL, scores reward across 5 components (root cause, evidence quality, tool use, fix plausibility, hallucination), and emits DPO-ready preference pairs. Adapter pattern supports Icarus, Cocotb, Questa, and VCS simulators."
+            tech={['Python', 'FastAPI', 'Docker', 'Pydantic', 'Icarus Verilog']}
+            github="https://github.com/LewallenAE/dv-eval-harness"
+          />
+          <ProjectCard
+            title="Crystal Hollows"
+            description="Full 2D action-RPG demo built from scratch in Godot 4 with zero imported assets. All rendering is programmatic via Godot's _draw() API — procedural maps, multi-phase boss AI, custom dialogue system."
+            tech={['Godot 4', 'GDScript']}
+            github="https://github.com/LewallenAE/crystal-hollows-demo"
+            demo="https://www.loom.com/share/eef0cadf91234394918ba80109cf5c74"
+            demoLabel="Watch Demo →"
+          />
+          <ProjectCard
+            title="Crypto Microstructure Research"
+            description="Statistical arbitrage research on crypto markets. Screened ~50 pairs via Pearson correlation, applied Augmented Dickey-Fuller cointegration tests, and identified tradeable pairs (LINK-ADA, OP-PEPE) with 20–60 hour mean-reversion half-lives. Includes z-score signal generation and backtesting."
+            tech={['Python', 'pandas', 'statsmodels', 'Binance API']}
+            github="https://github.com/LewallenAE/crypto_microstructure_research"
+          />
         </div>
       </section>
+
+      {/* ── Education ── */}
+      <section>
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-6">
+          Education
+        </h2>
+        <div className="space-y-5">
+          <div className="flex justify-between items-start">
+            <div>
+              <p className="text-white font-semibold">University of Pennsylvania</p>
+              <p className="text-slate-400 text-sm mt-0.5">Master of Applied Science — AI (MAS-CS)</p>
+            </div>
+            <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
+          </div>
+          <div className="flex justify-between items-start">
+            <div>
+              <p className="text-white font-semibold">University of Pennsylvania</p>
+              <p className="text-slate-400 text-sm mt-0.5">Master of Science in Engineering — AI (MSE-AI)</p>
+            </div>
+            <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
+          </div>
+          <div className="flex justify-between items-start">
+            <div>
+              <p className="text-white font-semibold">American Public University System</p>
+              <p className="text-slate-400 text-sm mt-0.5">B.S. Mathematics — Operations Research &nbsp;·&nbsp; Summa Cum Laude</p>
+            </div>
+            <span className="text-slate-500 text-sm shrink-0 ml-4">2024</span>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
