@@ -55,8 +55,8 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ProjectCard
             title="Binary Architecture Classifier"
-            description="In-process Go inference engine classifying PE binaries by CPU architecture via hex word n-gram TF-IDF + LinearSVC. Solved the Praetorian ML challenge 11 consecutive times — 500 correct predictions per run, 0 wrong."
-            tech={['Go', 'React', 'TypeScript', 'AWS EC2']}
+            description="Go inference engine classifying random binary fragments by CPU architecture via hex word n-gram TF-IDF + LinearSVC. Solved the Praetorian ML Binaries challenge 11 consecutive times — each run reaching 500 correct predictions with 0 wrong. Ported the trained scikit-learn inference pipeline to pure Go and deployed a React/TypeScript live dashboard on AWS EC2 streaming predictions in real time."
+            tech={['Go', 'React', 'TypeScript', 'AWS EC2', 'scikit-learn', 'LinearSVC']}
             github="https://github.com/LewallenAE/go-binary-classifier"
             demo="http://18.116.239.117:8080"
             demoLabel="Live →"
