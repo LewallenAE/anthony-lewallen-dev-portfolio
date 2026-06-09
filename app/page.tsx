@@ -21,7 +21,7 @@ export default function Home() {
           </h1>
           <p className="text-slate-400 leading-relaxed max-w-xl">
             Building ML infrastructure, offensive security tooling, and systems that
-            actually ship. Pursuing dual master&apos;s degrees at Penn in AI and MSE-AI.
+            actually ship. Pursuing dual master&apos;s degrees at Penn — MAS-CS (Software Systems) and MSE-AI.
           </p>
           <div className="flex gap-5 mt-5">
             <a
