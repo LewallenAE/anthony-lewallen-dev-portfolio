@@ -4,24 +4,31 @@ import ProjectCard from './components/ProjectCard';
 
 export default function Home() {
   return (
+    <div className="bg-[url('/background3.png')] bg-contain bg-no-repeat bg-center min-h-screen w-full">
     <main className="max-w-4xl mx-auto px-6 py-16 space-y-20">
-
+      
       {/* ── Hero ── */}
       <section className="flex flex-col sm:flex-row gap-10 items-start">
+        <div className="shrink-0 flex flex-col items-center gap-3">
         <div className="relative shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-white/10">
           <Image src="/AL.png" alt="Anthony Lewallen" fill className="object-cover" />
+          </div>
+          <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={150} height={45}></Image>
         </div>
+        
         <div>
-          <p className="text-white text-lg font-bold mb-1">Full-Stack Software Engineer</p>
+          <p className="text-white text-lg font-bold mb-1">AI Evaluation & Agentic Infrastructure Engineer</p>
           <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">
-            Applied Machine Learning &nbsp;·&nbsp; Security Engineering &nbsp;·&nbsp; Software Systems
+            RLHF &nbsp;·&nbsp; RL Environments &nbsp;·&nbsp; Evaluation Infrastructure &nbsp;·&nbsp; Post-Training Pipelines &nbsp;·&nbsp; Full-Stack Systems
           </p>
+          <p className="text-[rgb(0_255_65)] text-xs font-bold mb-1">Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; PostgreSQL</p>
           <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
-            Anthony Lewallen
+            Anthony Lewallen 
           </h1>
+          
           <p className="text-slate-400 leading-relaxed max-w-xl">
             Building ML infrastructure, offensive security tooling, and systems that
-            actually ship. Pursuing dual master&apos;s degrees at Penn — MAS-CS (Software Systems) and MSE-AI.
+            actually ship. Pursuing dual master&apos;s degrees at Penn  — MAS-CS (Software Systems) and MSE-AI. 
           </p>
           <div className="flex gap-5 mt-5">
             <a
@@ -127,5 +134,6 @@ export default function Home() {
       </section>
 
     </main>
+    </div>
   );
 }
