@@ -20,9 +20,8 @@ export default function Home() {
         </div>
         
         <div>
-          <p className="text-white text-lg font-bold mb-1">AI Evaluation & Agentic Infrastructure Engineer</p>
-          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">
-            RLHF &nbsp;·&nbsp; RL Environments &nbsp;·&nbsp; Evaluation Infrastructure &nbsp;·&nbsp; Post-Training Pipelines &nbsp;·&nbsp; Full-Stack Systems
+          <p className="text-white text-lg font-bold mb-1">AI Evaluation Infrastructure Engineer</p>
+          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">RLHF &nbsp;·&nbsp; RL Environments &nbsp;·&nbsp; Post-Training Pipelines &nbsp;·&nbsp; Model Reliability &nbsp;·&nbsp; Full-Stack Systems
           </p>
           <p className="text-[rgb(0_255_65)] text-xs font-bold mb-1">Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; PostgreSQL</p>
           <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
