@@ -4,8 +4,11 @@ import ProjectCard from './components/ProjectCard';
 
 export default function Home() {
   return (
-    <div className="bg-[url('/background3.png')] bg-contain bg-no-repeat bg-center min-h-screen w-full">
-    <main className="max-w-4xl mx-auto px-6 py-16 space-y-20">
+    <main className="relative isolate min-h-screen w-full overflow-x-hidden bg-slate-950 text-white">
+  <div className="fixed inset-0 z-0 pointer-events-none bg-[url('/bg-image2.png')] bg-cover bg-top bg-no-repeat opacity-[0.60]" />
+  <div className="fixed inset-0 z-0 pointer-events-none bg-black/40" />
+
+  <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 space-y-20">
       
       {/* ── Hero ── */}
       <section className="flex flex-col sm:flex-row gap-10 items-start">
@@ -13,7 +16,7 @@ export default function Home() {
         <div className="relative shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-white/10">
           <Image src="/AL.png" alt="Anthony Lewallen" fill className="object-cover" />
           </div>
-          <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={150} height={45}></Image>
+          <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={150} height={45} className="opacity-80"></Image>
         </div>
         
         <div>
@@ -26,7 +29,7 @@ export default function Home() {
             Anthony Lewallen 
           </h1>
           
-          <p className="text-slate-400 leading-relaxed max-w-xl">
+          <p className="text-[#F4FFF9] leading-relaxed max-w-xl">
             Building ML infrastructure, offensive security tooling, and systems that
             actually ship. Pursuing dual master&apos;s degrees at Penn  — MAS-CS (Software Systems) and MSE-AI. 
           </p>
@@ -133,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-    </main>
     </div>
+    </main>
   );
 }
