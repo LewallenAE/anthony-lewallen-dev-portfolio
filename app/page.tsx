@@ -14,7 +14,7 @@ export default function Home() {
       <section className="flex flex-col sm:flex-row gap-10 items-start">
         <div className="shrink-0 flex flex-col items-center gap-3">
         <div className="relative shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-white/10">
-          <Image src="/AL.png" alt="Anthony Lewallen" fill className="object-cover" />
+          <Image src="/bosshoss.png" alt="Anthony Lewallen" fill className="object-cover" />
           </div>
           <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={150} height={45} className="opacity-80"></Image>
         </div>
@@ -58,10 +58,19 @@ export default function Home() {
 
       {/* ── Projects ── */}
       <section>
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-6">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-350 mb-6">
           Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ProjectCard
+            title="DV Eval Harness"
+            description="LLM evaluation harness for hardware design verification. Drives agents through 5-step debug trajectories against broken RTL, scores reward across 5 components (root cause, evidence quality, tool use, fix plausibility, hallucination), and emits DPO-ready preference pairs. Adapter pattern supports Icarus, Cocotb, Questa, and VCS simulators."
+            tech={['Python', 'FastAPI', 'Docker', 'Pydantic', 'Icarus Verilog']}
+            github="https://github.com/LewallenAE/dv-eval-harness"
+            demo="https://dv-eval-harness.vercel.app/"
+            demoLabel="Live →"
+          />  
+          
           <ProjectCard
             title="Binary Architecture Classifier"
             description="Go inference engine classifying random binary fragments by CPU architecture via hex word n-gram TF-IDF + LinearSVC. Solved the Praetorian ML Binaries challenge 11 consecutive times — each run reaching 500 correct predictions with 0 wrong. Ported the trained scikit-learn inference pipeline to pure Go and deployed a React/TypeScript live dashboard on AWS EC2 streaming predictions in real time."
@@ -82,12 +91,7 @@ export default function Home() {
             tech={['Python', 'PyTorch']}
             github="https://github.com/LewallenAE/ScratchLM"
           />
-          <ProjectCard
-            title="DV Eval Harness"
-            description="LLM evaluation harness for hardware design verification. Drives agents through 5-step debug trajectories against broken RTL, scores reward across 5 components (root cause, evidence quality, tool use, fix plausibility, hallucination), and emits DPO-ready preference pairs. Adapter pattern supports Icarus, Cocotb, Questa, and VCS simulators."
-            tech={['Python', 'FastAPI', 'Docker', 'Pydantic', 'Icarus Verilog']}
-            github="https://github.com/LewallenAE/dv-eval-harness"
-          />
+          
           <ProjectCard
             title="Crystal Hollows"
             description="Full 2D action-RPG demo built from scratch in Godot 4 with zero imported assets. All rendering is programmatic via Godot's _draw() API — procedural maps, multi-phase boss AI, custom dialogue system."
@@ -116,21 +120,21 @@ export default function Home() {
               <p className="text-white font-semibold">University of Pennsylvania</p>
               <p className="text-slate-400 text-sm mt-0.5">Master of Science in Engineering -- Artificial Intelligence</p>
             </div>
-            <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
+            <span className="text-slate-100 text-sm shrink-0 ml-4">In Progress</span>
           </div>
           <div className="flex justify-between items-start">
             <div>
               <p className="text-white font-semibold">University of Pennsylvania</p>
               <p className="text-slate-400 text-sm mt-0.5">Master of Applied Science in Computer Science -- Software Systems Concentration</p>
             </div>
-            <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
+            <span className="text-slate-100 text-sm shrink-0 ml-4">In Progress</span>
           </div>
           <div className="flex justify-between items-start">
             <div>
               <p className="text-white font-semibold">American Public University System</p>
-              <p className="text-slate-400 text-sm mt-0.5">B.S. Mathematics — Operations Research &nbsp;·&nbsp; Summa Cum Laude</p>
+              <p className="text-slate-400 text-sm mt-0.5">B.S. Mathematics -- Operations Research &nbsp;·&nbsp; Summa Cum Laude</p>
             </div>
-            <span className="text-slate-500 text-sm shrink-0 ml-4">2024</span>
+            <span className="text-slate-100 text-sm shrink-0 ml-4">2024</span>
           </div>
         </div>
       </section>
