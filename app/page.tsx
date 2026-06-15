@@ -115,14 +115,14 @@ export default function Home() {
           <div className="flex justify-between items-start">
             <div>
               <p className="text-white font-semibold">University of Pennsylvania</p>
-              <p className="text-slate-400 text-sm mt-0.5">Master of Science in Engineering — AI (MSE-AI)</p>
+              <p className="text-slate-400 text-sm mt-0.5">Master of Science in Engineering -- Artificial Intelligence</p>
             </div>
             <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
           </div>
           <div className="flex justify-between items-start">
             <div>
               <p className="text-white font-semibold">University of Pennsylvania</p>
-              <p className="text-slate-400 text-sm mt-0.5">Master of Applied Science — AI (MAS-CS)</p>
+              <p className="text-slate-400 text-sm mt-0.5">Master of Applied Science in Computer Science -- Software Systems Concentration</p>
             </div>
             <span className="text-slate-500 text-sm shrink-0 ml-4">In Progress</span>
           </div>
