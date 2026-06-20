@@ -16,12 +16,12 @@ export default function Home() {
         <div className="relative shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-white/10">
           <Image src="/bosshoss.png" alt="Anthony Lewallen" fill className="object-cover" />
           </div>
-          <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={150} height={45} className="opacity-80"></Image>
+          <Image src ="/PennEngineering.png" alt ="The University of Pennsylvania School of Engineering Logo" width={110} height={45} className="opacity-80"></Image>
         </div>
         
         <div>
-          <p className="text-white text-lg font-bold mb-1">AI Evaluation Infrastructure Engineer</p>
-          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">RLHF &nbsp;·&nbsp; RL Environments &nbsp;·&nbsp; Post-Training Pipelines &nbsp;·&nbsp; Model Reliability &nbsp;·&nbsp; Full-Stack Systems
+          <p className="text-white text-lg font-bold mb-1">AI Research Engineer &nbsp;|&nbsp; Post-Training & Agentic Systems</p>
+          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">DPO &nbsp;·&nbsp; RLVR &nbsp;·&nbsp; ExGRPO &nbsp;·&nbsp; LoRA/QLoRA &nbsp;·&nbsp; Autonomous Reinforcement Learning Environments
           </p>
           <p className="text-[rgb(0_255_65)] text-xs font-bold mb-1">Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; PostgreSQL</p>
           <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
@@ -29,8 +29,7 @@ export default function Home() {
           </h1>
           
           <p className="text-[#F4FFF9] leading-relaxed max-w-xl">
-            Building ML infrastructure, offensive security tooling, and systems that
-            actually ship. Pursuing dual master&apos;s degrees at Penn  — MAS-CS (Software Systems) and MSE-AI. 
+            Bridging theoretical loss landscapes with distributed infrastructure. I build autonomous agents from the metal up—from architecting from-scratch transformer models, to engineering deterministic evaluation harnesses, to deploying self-healing RLVR training loops. 
           </p>
           <div className="flex gap-5 mt-5">
             <a
@@ -90,21 +89,6 @@ export default function Home() {
             description="GPT-2 (124M) architecture built from scratch in PyTorch — custom LayerNorm, GELU activation, causal multi-head self-attention, and transformer blocks with pre-norm residual connections. No high-level abstractions."
             tech={['Python', 'PyTorch']}
             github="https://github.com/LewallenAE/ScratchLM"
-          />
-          
-          <ProjectCard
-            title="Crystal Hollows"
-            description="Full 2D action-RPG demo built from scratch in Godot 4 with zero imported assets. All rendering is programmatic via Godot's _draw() API — procedural maps, multi-phase boss AI, custom dialogue system."
-            tech={['Godot 4', 'GDScript']}
-            github="https://github.com/LewallenAE/crystal-hollows-demo"
-            demo="https://www.loom.com/share/eef0cadf91234394918ba80109cf5c74"
-            demoLabel="Watch Demo →"
-          />
-          <ProjectCard
-            title="Crypto Microstructure Research"
-            description="Statistical arbitrage research on crypto markets. Screened ~50 pairs via Pearson correlation, applied Augmented Dickey-Fuller cointegration tests, and identified tradeable pairs (LINK-ADA, OP-PEPE) with 20–60 hour mean-reversion half-lives. Includes z-score signal generation and backtesting."
-            tech={['Python', 'pandas', 'statsmodels', 'Binance API']}
-            github="https://github.com/LewallenAE/crypto_microstructure_research"
           />
         </div>
       </section>
