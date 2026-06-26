@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Anthony Lewallen",
-  description: "AI Evaluation & Agentic Infrastructure Engineer",
+  description: "AI Research Engineer | Post-Traiming & Evaluations",
 };
 
 export default function RootLayout({
