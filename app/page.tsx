@@ -20,16 +20,16 @@ export default function Home() {
         </div>
         
         <div>
-          <p className="text-white text-lg font-bold mb-1">AI Research Engineer &nbsp;|&nbsp; Post-Training & Agentic Systems</p>
-          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">DPO &nbsp;·&nbsp; RLVR &nbsp;·&nbsp; ExGRPO &nbsp;·&nbsp; LoRA/QLoRA &nbsp;·&nbsp; Autonomous Reinforcement Learning Environments
+          <p className="text-white text-lg font-bold mb-1">Full-Stack Software Engineer</p>
+          <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-2">Backend & Distributed Systems &nbsp;·&nbsp; AI Post Training & Evaluation Platforms
           </p>
-          <p className="text-[rgb(0_255_65)] text-xs font-bold mb-1">Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; PostgreSQL</p>
+          <p className="text-[rgb(0_255_65)] text-xs font-bold mb-1">C++ &nbsp;·&nbsp; Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; PostgreSQL</p>
           <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
             Anthony Lewallen 
           </h1>
           
           <p className="text-[#F4FFF9] leading-relaxed max-w-xl">
-            Bridging theoretical loss landscapes with distributed infrastructure. I build autonomous agents from the metal up—from architecting from-scratch transformer models, to engineering deterministic evaluation harnesses, to deploying self-healing RLVR training loops. 
+            I build end-to-end Aritificial Intelligence post-training infastructure across distributed systems. 
           </p>
           <div className="flex gap-5 mt-5">
             <a
